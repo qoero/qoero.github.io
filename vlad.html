@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Влад • Дизайнер</title>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Unbounded',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hidden}
+        ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#111}::-webkit-scrollbar-thumb{background:#ff00aa;border-radius:4px}
+
+        header{height:100vh;background:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.95)),url('https://images.unsplash.com/photo-1550745162-0395675b0c25?w=1920') center/cover fixed;display:flex;align-items:center;justify-content:center;text-align:center}
+        .hero h1{font-size:92px;font-weight:700;background:linear-gradient(90deg,#ff00aa,#00ffff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:glow 2s ease-in-out infinite alternate}
+        .hero .subtitle{font-size:32px;margin:24px 0 40px;opacity:0.9}
+        .btn{display:inline-block;padding:18px 50px;font-size:24px;font-weight:500;background:linear-gradient(90deg,#ff00aa,#00ffff);color:#000;border-radius:50px;transition:.4s;position:relative;overflow:hidden}
+        .btn:hover{transform:scale(1.1);box-shadow:0 0 50px rgba(255,0,170,0.6)}
+
+        nav{position:fixed;top:0;width:100%;padding:20px 0;text-align:center;background:rgba(0,0,0,0.8);backdrop-filter:blur(12px);z-index:1000}
+        nav a{color:#fff;margin:0 40px;text-decoration:none;font-size:19px;transition:.4s}
+        nav a:hover{color:#ff00aa;transform:scale(1.15)}
+
+        section{padding:120px 8%}
+        h2{font-size:68px;text-align:center;margin-bottom:80px;background:linear-gradient(90deg,#00ffff,#ff00aa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+        .about{background:#111;display:flex;align-items:center;gap:80px;flex-wrap:wrap;justify-content:center;padding:140px 8%}
+        .about img{width:460px;border-radius:28px;box-shadow:0 0 50px rgba(255,0,170,0.5);transition:.5s}
+        .about img:hover{transform:translateY(-15px) scale(1.03)}
+        .about-text{max-width:660px;font-size:22px;line-height:1.9}
+
+        /* =========== ОТЗЫВЫ — автоскролл без стрелок =========== */
+        .reviews-section{background:#111;padding:140px 8% 180px;overflow:hidden;position:relative}
+        .reviews-track{display:flex;gap:35px;animation:scroll 60s linear infinite;width:max-content}
+        .reviews-track:hover{animation-play-state:paused}
+        .review{flex:0 0 380px;background:rgba(255,255,255,0.06);padding:34px;border-radius:24px;border:1px solid rgba(255,0,170,0.3);backdrop-filter:blur(8px)}
+        .review p{font-size:19px;line-height:1.7;margin-bottom:20px}
+        .review .author{color:#ff00aa;font-weight:600;font-size:18px}
+
+        @keyframes scroll{
+            0%{transform:translateX(0)}
+            100%{transform:translateX(-50%)}
+        }
+
+        /* =========== РАБОТЫ — твои оригинальные 3 карточки =========== */
+        .works{background:linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.95)),url('https://images.unsplash.com/photo-1495467033336-2c4e83c51da9?w=1920') center/cover fixed;padding:140px 8%}
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:40px}
+        .card{position:relative;height:460px;border-radius:24px;overflow:hidden;border:1px solid rgba(255,0,170,0.4);transition:all .6s;cursor:pointer}
+        .card:hover{transform:translateY(-20px);box-shadow:0 40px 80px rgba(255,0,170,0.5)}
+        .card-image{position:absolute;inset:0}
+        .card-image img{width:100%;height:100%;object-fit:cover;transition:transform .9s}
+        .card:hover .card-image img{transform:scale(1.12)}
+        .card-text{position:absolute;bottom:0;left:0;right:0;padding:50px 30px 40px;text-align:center;background:linear-gradient(transparent,rgba(0,0,0,0.98))}
+        .card-text h3{font-size:28px;margin-bottom:10px}
+
+        .more-works{text-align:center;margin-top:80px}
+        .more-works a{font-size:28px;color:#ff00aa;text-decoration:none;border-bottom:2px solid #ff00aa;padding-bottom:8px;transition:.4s}
+        .more-works a:hover{letter-spacing:4px}
+
+        .contact{background:#000;padding:140px 8%;text-align:center}
+        .social a{font-size:56px;margin:0 40px;transition:.5s;display:inline-block}
+        .social a:hover{color:#ff00aa;transform:scale(1.4) rotate(15deg)}
+
+        @keyframes glow{from{filter:drop-shadow(0 0 20px #ff00aa)}to{filter:drop-shadow(0 0 40px #00ffff)}}
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home">Главная</a>
+        <a href="#about">Обо мне</a>
+        <a href="#works">Работы</a>
+        <a href="#contact">Контакты</a>
+    </nav>
+
+    <header id="home">
+        <div class="hero">
+            <h1>ВЛАД</h1>
+            <p class="subtitle">Отличный дизайн<br>за скромные деньги</p>
+            <a href="https://discord.gg/2WszjUr6zm" class="btn">Заказать прямо сейчас</a>
+        </div>
+    </header>
+
+    <section id="about" class="about">
+        <img src="image/photo_2025-03-06_05-59-44.png" alt="Влад">
+        <div class="about-text">
+            <h2>Привет, я Влад — дизайнер</h2>
+            <p>Монтаж игрового видео • Логотипы • 3D-визуалы • Брендинг<br>
+            Быстро • Качественно • Недорого</p>
+            <p>Уже выполнил 50+ заказов и продолжаю</p>
+        </div>
+    </section>
+
+    <!-- ОТЗЫВЫ — плавный бесконечный скролл -->
+    <section class="reviews-section">
+        <h2>Отзывы клиентов</h2>
+        <div class="reviews-track">
+            <div class="review"><p>«Сделал монтаж по CS2 за 2 дня и 1500 руб. Качество огонь!»</p><div class="author">— Артём</div></div>
+            <div class="review"><p>«Логотип для стрима — лучше, чем я представлял. Правки бесплатно!»</p><div class="author">— Кирилл, стример</div></div>
+            <div class="review"><p>«Быстро, дёшево и очень красиво. Рекомендую на все 100!»</p><div class="author">— Маша</div></div>
+            <div class="review"><p>«Лучший монтажер, с которым работал. Всё чётко и в срок!»</p><div class="author">— Дима Play</div></div>
+            <div class="review"><p>«3D-обложка для канала — просто бомба!»</p><div class="author">— Никита</div></div>
+            <div class="review"><p>«Логотип для клана получился идеально, даже лучше ТЗ»</p><div class="author">— Саша, капитан</div></div>
+            <div class="review"><p>«Заказывал уже 3 раза — всегда топ!»</p><div class="author">— Ваня</div></div>
+            <div class="review"><p>«Лучшее соотношение цена/качество»</p><div class="author">— Лёха</div></div>
+            <div class="review"><p>«Монтаж стал вирусным в тиктоке благодаря Владу!»</p><div class="author">— Лиза</div></div>
+
+            <!-- Дубли для бесконечности -->
+            <div class="review"><p>«Сделал монтаж по CS2 за 2 дня и 1500 руб. Качество огонь!»</p><div class="author">— Артём</div></div>
+            <div class="review"><p>«Логотип для стрима — лучше, чем я представлял. Правки бесплатно!»</p><div class="author">— Кирилл, стример</div></div>
+        </div>
+    </section>
+
+    <!-- ТВОИ ОРИГИНАЛЬНЫЕ 3 РАБОТЫ -->
+    <section id="works" class="works">
+        <h2>Мои работы</h2>
+        <div class="grid">
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="image/Screenshot_1.png" alt="Монтаж Видео">
+                </div>
+                <div class="card-text">
+                    <h3>Монтаж игрового видео</h3>
+                    <p>Динамичные клипы по играм</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="image/Hate_mods_.png" alt="Превью">
+                </div>
+                <div class="card-text">
+                    <h3>Разработка Превью</h3>
+                    <p>От простых до сложных превью</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="image/Screenshot_2.png" alt="Интерьер 3д">
+                </div>
+                <div class="card-text">
+                    <h3>Интерьер 3д</h3>
+                    <p>3д Интерьер для будующих комнат</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="more-works">
+            <a href="https://discord.gg/2WszjUr6zm">Ещё десятки работ в моём Discord →</a>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Связаться со мной</h2>
+        <p style="font-size:28px;margin:60px 0">qoero2222@gmail.com</p>
+        <div class="social">
+            <a href="https://discord.gg/2WszjUr6zm">Discord</a>
+            <a href="https://t.me/+nLvKGauiJeFmNWQy">Telegram</a>
+            <a href="https://www.youtube.com/@vlados1331/videos">YouTube</a>
+        </div>
+    </section>
+
+</body>
+</html>
